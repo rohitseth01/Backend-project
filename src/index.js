@@ -1,9 +1,23 @@
 // require('dotenv').config({path: './env'})
 import dotenv from "dotenv"
+import connectDB from "./db/index.js";
 
 dotenv.config({
-    path: './.env'
+    path: './env'
 })
+
+
+connectDB()
+
+
+
+
+
+
+
+
+//1st approach to connect with database
+//on is listner in express 
 
 
 /*
@@ -16,11 +30,10 @@ const app = express()
             console.log("ERRR: ", error);
             throw error
         })
-
-        app.listen(process.env.PORT, () => {
-            console.log(`App is listening on port ${process.env.PORT}`);
-        })
-
+        app.listen(process.env.PORT,()=>{
+            console.log(`App is listening on port ${process.env.PORT}`)
+            
+        })    
     } catch (error) {
         console.error("ERROR: ", error)
         throw err
