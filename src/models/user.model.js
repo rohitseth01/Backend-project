@@ -57,7 +57,7 @@ const userSchema= new Schema(
 //pre ek middleware hai password encryot karne ke baad next pe call karo
 userSchema.pre("save",async function(next){
     if(!this.isModified("password"))return next();
-    this.password=bcrypt.hash(this.password,10)
+    this.password=await bcrypt.hash(this.password,10)
     next()
 
 })
